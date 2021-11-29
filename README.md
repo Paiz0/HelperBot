@@ -14,9 +14,11 @@ to the fork, describe what you've done as a post in the issue's thread, then sen
 Setup:(these instruction are made based on a Windows machine)
 --To start this project, you need to download node.js and you'll need a discord account with either the program or the web client open. 
   https://nodejs.org/en/
+  
   https://discord.com/
 
 --Then you'll need to go to: https://discord.com/developers/applications and click on the "Applications" button on the top right. 
+
 ![Screenshot 2021-11-28 225303](https://user-images.githubusercontent.com/79292635/143821640-adbd3ec1-9d4a-4bdd-bf7c-3ad4091df393.png)
 
 --Then you'll need to go to the "bot" section of the page and enable your bot.
