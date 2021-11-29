@@ -32,7 +32,9 @@ client.on('messageCreate', message => {
 		client.commands.get('dog').execute(message, args, Discord);
 	} else if (command === 'games') {
 		client.commands.get('games').execute(message, args);
-    }
+    } else if (command === 'inspire') {
+		client.commands.get('inspire').execute(message, args);
+	}
 });
 
 
