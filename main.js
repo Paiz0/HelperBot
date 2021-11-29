@@ -37,8 +37,6 @@ client.on('messageCreate', message => {
 
 
 
-client.login('OTE0NzA2OTc4MjY0MjA3NDMw.YaQ9Qg.40BtXVTevPIFyHzvffzcDB0BwOs'); //helper bot token
+client.login('INSERT TOKEN HERE'); //helper bot token
 
 
-//Invite link to add HelperBot to your discord server:
-//https://discord.com/api/oauth2/authorize?client_id=914706978264207430&permissions=8&scope=bot
