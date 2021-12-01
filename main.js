@@ -1,9 +1,11 @@
 const Discord = require('discord.js');
-const client = new Discord.Client({intents: ['GUILDS', 'GUILD_MESSAGES', 'GUILD_MESSAGE_TYPING']});
+const intents = new Discord.Intents(32767);     //The value 32767 means ALL_INTENTS. 
+const client = new Discord.Client({ intents }); //Updated client so that it has all intents.
 const prefix = '~';                             //prefix for the commands
 const fs = require('fs');
 client.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
+const { MessageEmbed } = require('discord.js'); //Included MessageEmbed which represents an embed in a message (image/video preview, rich embed, etc.).
 
 for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
@@ -12,6 +14,43 @@ for (const file of commandFiles) {
 
 client.once('ready', () => {
 	console.log('HelperBot is ready for action!');
+});
+
+client.on('guildMemberAdd', member => { //The guildMemberAdd event detects if there are new members.
+	//Search for the "welcome" text channel.
+	const channel = member.guild.channels.cache.find(channel => channel.name === "welcome" && channel.type === "GUILD_TEXT");
+	//If the "welcome" text channel exists, create the custom embed and post it to the discord server.
+	if (channel) {
+		const welcome_embed = new MessageEmbed()
+		.setColor('#3BA45B')
+		.setTitle('A new member just joined the server!')
+		.setDescription(`Welcome ${member}!`)
+		.setTimestamp()
+		channel.send({ embeds: [welcome_embed] })
+	}
+	//Otherwise, print an error message to the console.
+	else {
+		console.log("Text channel doesn't exist.");
+	}
+});
+
+//
+client.on('guildMemberRemove', member => { //The guildMemberRemove event detects if any members have left the guild.
+	//Search for the "general" text channel.
+	const channel = member.guild.channels.cache.find(channel => channel.name === "general" && channel.type === "GUILD_TEXT");
+	//If the "general" text channel exists, create the custom embed and post it to the discord server.
+	if (channel) {
+		const leave_embed = new MessageEmbed()
+		.setColor('#FF0000')
+		.setTitle('A member just left the server!')
+		.setDescription(`We will miss you ${member}!`)
+		.setTimestamp()
+		channel.send({ embeds: [leave_embed] })
+	}
+	//Otherwise, print an error message to the console.
+	else {
+		console.log("Text channel doesn't exist.");
+	}
 });
 
 client.on('messageCreate', message => {
