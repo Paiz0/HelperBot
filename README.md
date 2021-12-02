@@ -21,7 +21,10 @@ Setup:(these instruction are made based on a Windows machine)
 
 ![Screenshot 2021-11-28 225303](https://user-images.githubusercontent.com/79292635/143821640-adbd3ec1-9d4a-4bdd-bf7c-3ad4091df393.png)
 
---Then you'll need to go to the "bot" section of the page and enable your bot.
+--Then you'll need to go to the "bot" section of the page and enable your bot, and enable these settings.
+
+![image](https://user-images.githubusercontent.com/79292635/144335176-4141ca8a-2031-4813-8fdc-de317fe546da.png)
+
 
 --Finally go to the "OAuth2" tab on that same page and create an invite link for your bot.
   ![Screenshot 2021-11-28 224845](https://user-images.githubusercontent.com/79292635/143821839-b337ff7d-0b04-446c-971b-609ee842f193.png)
